@@ -21,7 +21,9 @@ $(document).ready(function () {
                 //weather stuff
                 // $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
                 // $('.showTemp').text(`The temperature in Fahreinheit is ${((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(1)} degrees with ${response.weather[0].description}`);
-                $('.showRestaurant').text(`Good restaurants in ${city} are ${response.restaurants}%`);
+                response.restaurants.forEach(element => $('.showRestaurant').append(element.restaurant.name));
+
+                // (`Good restaurants in ${city} are ${response.restaurants[0].restaurant.name}`);
             } else {
                 $('.showHumidity').text(`There was an error handling your request.`);
                 $('.showTemp').text(`Please check your inputs and try again!`);
