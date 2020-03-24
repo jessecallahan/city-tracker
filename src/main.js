@@ -1,6 +1,6 @@
-import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css'
-import './weatherinterface.js';
+// import $ from 'jquery';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import './styles.css'
+import './cityinterface.js';
 
