@@ -25,6 +25,7 @@ $(document).ready(function () {
         //gets restaurant id number
         function getElements(response) {
             const city1 = response.location_suggestions[0].city_id
+            const cityName1 = response.location_suggestions[0].city_name
             console.log(city1)
 
             //gets restuarant suggestions
@@ -40,7 +41,7 @@ $(document).ready(function () {
                 function getElements(response2) {
                     $("#showRestaurant").html('');
                     $("#showRestaurant1").html('');
-                    $('#showRestaurant').html("Good restaurants in " + `${city}` + " are:")
+                    $('#showRestaurant').html("Good restaurants in " + `${cityName1}` + " are:")
                     response2.restaurants.forEach(element =>
                         $('#showRestaurant1').append("<a target='_blank' href=" + element.restaurant.url + ">" + element.restaurant.name + "</a>" + ", "));
                     $('#showRestaurant1').show();
@@ -55,8 +56,18 @@ $(document).ready(function () {
                 $('.showTemp').text(`Please check your inputs and try again!`);
             }
         }
-
-        //gets weather api
+        //     getRestaurantNumberByCity()
+        //     .then(function(response) {
+        //       let body = JSON.parse(response);
+        //       let humidity = body.main.humidity;
+        //       return giphyCall(humidity);
+        //     })
+        //     .then(function(response) {
+        //     let giphyResponse = JSON.parse(response);
+        //     let image = giphyResponse["data"][0]["images"]["downsized"]["url"];
+        //     $('.showImage').html(`<img src='${image}'>`);
+        //   });
+        //     //gets weather api
         // console.log(city);
         // (async () => {
         //     let weatherService = new WeatherService();
