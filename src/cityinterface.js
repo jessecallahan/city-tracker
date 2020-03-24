@@ -56,18 +56,7 @@ $(document).ready(function () {
                 $('.showTemp').text(`Please check your inputs and try again!`);
             }
         }
-        //     getRestaurantNumberByCity()
-        //     .then(function(response) {
-        //       let body = JSON.parse(response);
-        //       let humidity = body.main.humidity;
-        //       return giphyCall(humidity);
-        //     })
-        //     .then(function(response) {
-        //     let giphyResponse = JSON.parse(response);
-        //     let image = giphyResponse["data"][0]["images"]["downsized"]["url"];
-        //     $('.showImage').html(`<img src='${image}'>`);
-        //   });
-        //     //gets weather api
+        // weather api
         // console.log(city);
         // (async () => {
         //     let weatherService = new WeatherService();
