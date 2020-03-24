@@ -42,6 +42,7 @@ $(document).ready(function () {
                     response2.restaurants.forEach(element =>
                         $('#showRestaurant1').append(element.restaurant.name + ", "));
                     $('#showRestaurant1').show();
+                    // this is a for loop verison of above code
                     // for (var i = 0; i < response2.restaurants.length; i++) {
                     //     $("#showRestaurant1").append(response2.restaurants[i].restaurant.name + ", ");
                     //     $("#showRestaurant1").show();
