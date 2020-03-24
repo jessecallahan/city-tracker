@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         //gets restaurant id number
         function getElements(response) {
-            const city1 = response.location_suggestions[0].entity_id
+            const city1 = response.location_suggestions[0].city_id
             console.log(city1)
 
             //gets restuarant suggestions
@@ -41,7 +41,6 @@ $(document).ready(function () {
                     $("#showRestaurant").html('');
                     $("#showRestaurant1").html('');
                     $('#showRestaurant').html("Good restaurants in " + `${city}` + " are:")
-
                     response2.restaurants.forEach(element =>
                         $('#showRestaurant1').append("<a target='_blank' href=" + element.restaurant.url + ">" + element.restaurant.name + "</a>" + ", "));
                     $('#showRestaurant1').show();
