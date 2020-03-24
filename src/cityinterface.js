@@ -36,13 +36,17 @@ $(document).ready(function () {
                 })();
                 function getElements(response2) {
                     $("#showRestaurant").html('');
-                    $('#showRestaurant').html("Good restaurants in " + `${city}` + " are:") +
+                    $("#showRestaurant1").html('');
+                    $('#showRestaurant').html("Good restaurants in " + `${city}` + " are:")
 
-                        response2.restaurants.forEach(element =>
-                            $('#showRestaurant1').append(element.restaurant.name + ", "));
+                    response2.restaurants.forEach(element =>
+                        $('#showRestaurant1').append(element.restaurant.name + ", "));
                     $('#showRestaurant1').show();
+                    // for (var i = 0; i < response2.restaurants.length; i++) {
+                    //     $("#showRestaurant1").append(response2.restaurants[i].restaurant.name + ", ");
+                    //     $("#showRestaurant1").show();
+                    // }
                 }
-
             } else {
                 $('.showHumidity').text(`There was an error handling your request.`);
                 $('.showTemp').text(`Please check your inputs and try again!`);
