@@ -33,14 +33,17 @@ $(document).ready(function () {
                     let weatherService1 = new RestService();
                     const response2 = await weatherService1.getRestByNum(city1);
                     getElements(response2);
+                    console.log(response2.restaurants);
                 })();
+
+
                 function getElements(response2) {
                     $("#showRestaurant").html('');
                     $("#showRestaurant1").html('');
                     $('#showRestaurant').html("Good restaurants in " + `${city}` + " are:")
 
                     response2.restaurants.forEach(element =>
-                        $('#showRestaurant1').append(element.restaurant.name + ", "));
+                        $('#showRestaurant1').append("<a target='_blank' href=" + element.restaurant.url + ">" + element.restaurant.name + "</a>" + ", "));
                     $('#showRestaurant1').show();
                     // this is a for loop verison of above code
                     // for (var i = 0; i < response2.restaurants.length; i++) {
