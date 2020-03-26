@@ -30,6 +30,7 @@
             <!-- map show -->
             <div class="col-md-6">
                 <div id="map" style="width: 500px; height: 400px;"></div>
+                <div id="mapError"></div>
             </div>
 
         </div>
@@ -61,7 +62,7 @@
                         position: results[0].geometry.location
                     });
                 } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
+                    ("#mapError").text('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
