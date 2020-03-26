@@ -5,6 +5,8 @@ import './styles.css';
 import { RestNumService } from './restaurantnum-service.js';
 import { RestService } from './restaurant-service.js';
 import { WeatherService } from './../src/weather-service.js';
+import { MapService } from './../src/weather-service.js';
+
 
 $(document).ready(function () {
 
@@ -63,6 +65,22 @@ $(document).ready(function () {
                     $('.showTemp').text(`Cant find info on weather in this area!`);
                 }
             }
+            // Promise.all([RestService, RestNumService, WeatherService]).then(function () {
+            //     var map;
+            //     function initMap() {
+            //       map = new google.maps.Map(document.getElementById('map'), {
+            //         center: {lat: -34.397, lng: 150.644},
+            //         zoom: 8
+            //       });
+            //     }
+            //     // map api
+
+            //     // function getElements(mapResponse) {
+
+            //     // }
+
+            // });
         });
     });
+
 });
