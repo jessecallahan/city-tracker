@@ -1,3 +1,24 @@
 body {
-    background-color: lightcoral;
+    background-color: lemonchiffon;
   }
+/* 
+  .wikiImg {
+    max-width: auto;
+    max-height: 50%;
+  } */
+
+
+  .showWikiDescrip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+  }
+  a.custom-card,
+  a.custom-card:hover {
+    color: inherit;
+  }
+  #map {
+    height: 100%;
+  }
+  

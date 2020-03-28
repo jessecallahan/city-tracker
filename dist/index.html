@@ -1,76 +1,120 @@
 <html>
 
 <head>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="./main.js"></script> -->
-    <title>City Tracker</title>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="./main.js"></script> -->
+  <title>City Tracker</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Track whats going on in any city!</h1>
-        <label for="location">Enter a City:</label>
-        <input id="location" type="text">
-        <button class="btn-success" id="weatherLocation">Get the Scoop!</button>
+  <div class="container">
+    <h1>Track whats going on in any city!</h1>
+    <label for="location">Enter a City:</label>
+    <input id="location" type="text">
+    <button class="btn-success" id="weatherLocation">Get the Scoop!</button>
 
-        <div class="row">
-            <div class="col-md-6">
-                <!-- restaurant shows -->
-                <div id="showRestaurant"> </div>
-                <div id="showRestaurant1"></div>
-                <div class="errors"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <!-- restaurant shows -->
+        <div id="showRestaurant"> </div>
+        <div id="showRestaurant1"></div>
+        <div class="errors"></div>
 
-                <br>
-                <!-- weather shows -->
-                <div class="showHumidity"></div>
-                <div class="showTemp"></div>
+        <br>
+        <!-- weather shows -->
+        <div class="showHumidity"></div>
+        <div class="showTemp"></div>
+
+        <br>
+        <!-- wiki shows -->
+
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="wikiImg"></div>
             </div>
-
-            <!-- map show -->
-            <div class="col-md-6">
-                <div id="map" style="width: 500px; height: 400px;"></div>
-                <div id="mapError"></div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="wikiTitle"></h5>
+                <p class="showWikiDescrip"></p>
+                <p class="card-text"><small class="text-muted">Powered by Wiki Api</small></p>
+              </div>
             </div>
+          </div>
 
         </div>
+        </a>
+      </div>
+
+
+
+      <!-- <div class="row">
+          <div class="col-sm-6">
+            <h3>
+              <div class="wikiTitle">
+            </h3>
+            <div class=" showWikiDescrip"></div>
+          </div>
+
+
+          <div class="col-sm-6">
+
+            <span class="wikiLink">
+              <div class="wikiThumb"></div>
+            </span>
+
+          </div>
+
+        </div>
+
+      </div> -->
+
+
+      <!-- map show -->
+      <div class="col-md-6">
+        <div id="map" style="width: 500px; height: 400px;"></div>
+        <div id="mapError"></div>
+      </div>
+
     </div>
+  </div>
 
 
 
 
-    <!-- map script -->
-    <script>function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
-                center: { lat: -34.397, lng: 150.644 }
-            });
-            var geocoder = new google.maps.Geocoder();
+  <!-- map script -->
+  <script>function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: { lat: -34.397, lng: 150.644 }
+      });
+      var geocoder = new google.maps.Geocoder();
 
-            document.getElementById('weatherLocation').addEventListener('click', function () {
-                geocodeAddress(geocoder, map);
-            });
+      document.getElementById('weatherLocation').addEventListener('click', function () {
+        geocodeAddress(geocoder, map);
+      });
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+      var address = document.getElementById('location').value;
+      geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === 'OK') {
+          resultsMap.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: results[0].geometry.location
+          });
+        } else {
+          ("#mapError").text('Geocode was not successful for the following reason: ' + status);
         }
-
-        function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('location').value;
-            geocoder.geocode({ 'address': address }, function (results, status) {
-                if (status === 'OK') {
-                    resultsMap.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    ("#mapError").text('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
+      });
+    }
 
 
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlQPlXZJPBhkNXMnpnAIp96Ih_7s9CLwQ&callback=initMap">
     </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlQPlXZJPBhkNXMnpnAIp96Ih_7s9CLwQ&callback=initMap">
-        </script>
 
 <script type="text/javascript" src="bundle.js"></script></body>
