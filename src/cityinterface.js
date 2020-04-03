@@ -76,7 +76,7 @@ $(document).ready(function () {
         function getElements(wikiResponse) {
           // $('.wikiThumb').html('');
 
-
+          $('#wikiShow').show();
           $('.showWikiDescrip').html(`<a href='${wikiResponse.api_urls.edit_html}' target="_blank">` + wikiResponse.extract + "</a>");
           $('.wikiTitle').text(wikiResponse.title);
           $('.wikiImg').html(`<a href='${wikiResponse.api_urls.edit_html}' target="_blank">` + `<img src='${wikiResponse.thumbnail.source}' class='card-img' alt='...'>`)

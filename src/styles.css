@@ -7,7 +7,7 @@ body {
     max-height: 50%;
   } */
 
-
+  
   .showWikiDescrip {
     white-space: nowrap;
     overflow: hidden;
@@ -20,5 +20,8 @@ body {
   }
   #map {
     height: 100%;
+  }
+  #wikiShow{
+    display: none;
   }
   
