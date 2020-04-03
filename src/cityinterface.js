@@ -6,7 +6,7 @@ import { RestNumService } from './restaurantnum-service.js';
 import { RestService } from './restaurant-service.js';
 import { WeatherService } from './../src/weather-service.js';
 import { WikiService } from './../src/wiki-service.js';
-import { MapService } from './../src/weather-service.js';
+
 
 
 $(document).ready(function () {
